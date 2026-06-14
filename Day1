@@ -1,0 +1,24 @@
+#Valid Anagram
+bool isAnagram(char* s, char* t) {
+    int lenS = strlen(s);
+    int lenT = strlen(t);
+
+    if(lenT!=lenS){
+        return false;
+    }
+  
+    int counts[26] = {0};
+
+    for(int i = 0 ; i <lenS ; i++){
+        counts[s[i]- 'a']++;
+        counts[t[i]- 'a']--;
+    }
+
+    for(int i = 0; i<26 ; i++){
+        if (counts[i] != 0){
+            return false;
+        }
+    }
+    return true;
+
+}
